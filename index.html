@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monobank Skins - Detailed Pricing</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f0f0f;
+            margin: 0;
+            padding: 20px;
+            color: #eee;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-content {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+        .org-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        .org-name:hover {
+            color: #0088cc;
+            text-decoration: underline;
+        }
+        .skins-list {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .skin-item {
+            text-align: center;
+            background: #111;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        .skin-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .skin-price {
+            display: block;
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #333;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            color: #555;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Колекція скінів Monobank (з цінами за кожну карту)</h1>
+    <div id="gallery" class="container"></div>
+    <div class="footer">Дані базуються на актуальних тарифах Monobaza</div>
+
+    <script>
+
+                const data = [
+          {
+            org: "БФ СПІЛЬНОТА СТЕРНЕНКА",
+            url: "https://base.monobank.ua/rusoriz#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_rusoriz_card_visa.png", price: "50" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_rusoriz2_card_visa.png", price: "29 999" }
+            ]
+          },
+          {
+            org: "СТРУМ",
+            url: "https://base.monobank.ua/strum#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_strum_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "АЗОВ.Супровід",
+            url: "https://base.monobank.ua/Em4d2p4Pu8w4EY#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_asupport_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "АПОСТОЛ Дмитро Карпенко",
+            url: "https://base.monobank.ua/apostledmytro#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_apostle_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "Лачен пише",
+            url: "https://base.monobank.ua/lachen#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_lachen_02_card_visa.png", price: "166" }
+            ]
+          },
+
+            {
+              org: "Дід Шинобі",
+              url: "https://base.monobank.ua/8YS3SWXotttv5e#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_shinobi_card_visa.png", price: "50" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_shinobi1_card_visa.png", price: "199" }
+              ]
+            },
+
+          {
+            org: "Leb1ga",
+            url: "https://base.monobank.ua/leb1ga#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_leb1ga_card_visa.png", price: "199" }
+            ]
+          },
+          {
+            org: "Історія Без Міфів",
+            url: "https://base.monobank.ua/istoriyabezmifiv#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_ibm_leg_card_visa.png", price: "50" }
+            ]
+          },
+
+            {
+              org: "Ghostik",
+              url: "https://base.monobank.ua/ghostik#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_ghostik_card_visa.png", price: "50" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_ghostik2_card_visa.png", price: "100" }
+              ]
+            },
+
+          {
+            org: "Гуртом та Вщент",
+            url: "https://base.monobank.ua/ppodcast#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gurtom_card_visa.png", price: "300" }
+            ]
+          },
+          {
+            org: "valentinopradagucci",
+            url: "https://base.monobank.ua/7JuoNphXqvYJbb#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_valentynm_card_visa.png", price: "169" }
+            ]
+          },
+          {
+            org: "Михайло Смокович",
+            url: "https://base.monobank.ua/smokovych#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_smok_card_visa.png", price: "70" }
+            ]
+          },
+          {
+            org: "Михайло Крупін",
+            url: "https://base.monobank.ua/89UUZoCBp8Dj4o#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_mkrupin_card_visa.png", price: "25 000" }
+            ]
+          },
+          {
+            org: "Bromance podcast",
+            url: "https://base.monobank.ua/bromance#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_bmc2_card_visa.png", price: "444" }
+            ]
+          },
+          {
+            org: "OLDboi",
+            url: "https://base.monobank.ua/oldboi#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_oldboi_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "ТЕЛЕБАЧЕННЯ ТОРОНТО",
+            url: "https://base.monobank.ua/torontotv#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_torontotv_card_visa.png", price: "300" }
+            ]
+          },
+          {
+            org: "Секретний чат Петриченка",
+            url: "https://base.monobank.ua/petrychenko#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bndk_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "DeepStateUA",
+            url: "https://base.monobank.ua/deepstateua#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_deepstate1_card_visa.png", price: "500" }
+            ]
+          },
+          {
+            org: "Ukraïner",
+            url: "https://base.monobank.ua/ukrainer#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_ukrainer2_card_visa.png", price: "100" },
+              { src: "https://icons.monobank.com.ua/skin/auto/bukrainer3/wallet_base_bukrainer3_card_visa.png", price: "100" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_ukrainer1_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "ЗБРОЙОВИЙ ЛОБІСТ",
+            url: "https://base.monobank.ua/Cwmhr5D7Uco65h#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_blobbist_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "Голландець",
+            url: "https://base.monobank.ua/6Nxv7zKiomi8By#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_hollander_card_visa.png", price: "500" }
+            ]
+          },
+          {
+            org: "BLOGMAYSTER",
+            url: "https://base.monobank.ua/blogmayster#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_blogmayster_card_visa.png", price: "10" }
+            ]
+          },
+
+            {
+              org: "УТ-2",
+              url: "https://base.monobank.ua/yt2#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_yt2_card_visa.png", price: "39" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_yt2fail_card_visa.png", price: "119" }
+              ]
+            },
+
+          {
+            org: "БФ ЛЕГІОН САППОРТ",
+            url: "https://base.monobank.ua/legionsupport#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_legion_card_visa.png", price: "200" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_legionfs_card_visa.png", price: "350" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_forlegion_card_visa.png", price: "400" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_legion2_card_visa.png", price: "600" }
+            ]
+          },
+
+            {
+              org: "Консул про ідеологію",
+              url: "https://base.monobank.ua/cnsl#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_consul_card_visa.png", price: "99" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_consul2_card_visa.png", price: "299" }
+              ]
+            },
+
+          {
+            org: "Євген Пронін",
+            url: "https://base.monobank.ua/pronin#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_lawpronin_card_visa.png", price: "50" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_lawpronin2_card_visa.png", price: "50" }
+            ]
+          },
+          {
+            org: "УКРДИЗАЙНАРХІВ",
+            url: "https://base.monobank.ua/Dg8vwA7wHZwTTR#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_ukrdesigna_card_visa.png", price: "300" }
+            ]
+          },
+          {
+            org: "Alpha Centauri",
+            url: "https://base.monobank.ua/theacentauri#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_alpha_card_visa.png", price: "100" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_eartemis_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "Третя штурмова (Support)",
+            url: "https://base.monobank.ua/ab3support#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_o3b_card_visa.png", price: "499" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_azov_card_visa.png", price: "499" }
+            ]
+          },
+          {
+            org: "Ісландія",
+            url: "https://base.monobank.ua/islndtv#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_isl_card_visa.png", price: "200" }
+            ]
+          },
+          {
+            org: "thetremba",
+            url: "https://base.monobank.ua/thetremba#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_trmb_card_visa.png", price: "250" }
+            ]
+          },
+          {
+            org: "БФ Голоси дітей",
+            url: "https://base.monobank.ua/voicesofchildren#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bfchildv_card_visa.png", price: "50" }
+            ]
+          },
+          {
+            org: "Smak",
+            url: "https://base.monobank.ua/smak#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_smak_card_visa.png", price: "148" }
+            ]
+          },
+          {
+            org: "Богдан К.",
+            url: "https://base.monobank.ua/AKQb3GjdneA1mw#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bkrotevich1_card_visa.png", price: "50" }
+            ]
+          },
+          {
+            org: "Це ж було вже",
+            url: "https://base.monobank.ua/9DS27Cw2oRy66a#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_basebulo_card_visa.png", price: "99" }
+            ]
+          },
+
+            {
+              org: "Останній Капіталіст",
+              url: "https://base.monobank.ua/2gkjik9WjTdxnr#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_lcapital_card_visa.png", price: "250" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_capitalist_card_visa.png", price: "600" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_+capitalist2_card_visa.png", price: "1500" }
+              ]
+            },
+
+          {
+            org: "PROМОВА",
+            url: "https://base.monobank.ua/C5qeoGc5VQpuui#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_promova_card_visa.png", price: "200" }
+            ]
+          },
+
+            {
+              org: "ЯНГОЛИ",
+              url: "https://base.monobank.ua/ab3angels#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_yangoli_card_visa.png", price: "150" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_yangoli2_card_visa.png", price: "3000" }
+              ]
+            },
+
+          {
+            org: "БФ 1991",
+            url: "https://base.monobank.ua/81NN2qov5Bc1aX#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_1991fund_card_visa.png", price: "250" }
+            ]
+          },
+          {
+            org: "80 Галицька бригада",
+            url: "https://base.monobank.ua/8Kiv8o9AULv5aJ#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_80odshb_card_visa.png", price: "80" }
+            ]
+          },
+          {
+            org: "monitor",
+            url: "https://base.monobank.ua/monitor#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_monitor_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "КультПива",
+            url: "https://base.monobank.ua/73jciQWMRLGpbs#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_beer_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "Khimikdavid",
+            url: "https://base.monobank.ua/DfMKh5mC4zumRy#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_khimik2_card_visa.png", price: "200" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_khimik_card_visa.png", price: "200" }
+            ]
+          },
+          {
+            org: "Loran",
+            url: "https://base.monobank.ua/loran#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_loran_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "ceh9",
+            url: "https://base.monobank.ua/ceh9#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_ceh9_card_visa.png", price: "49" }
+            ]
+          },
+          {
+            org: "UA PHONK COMMUNITY",
+            url: "https://base.monobank.ua/DJ3vNDaoGJTyRm#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_phonk_card_visa.png", price: "100" }
+            ]
+          },
+          {
+            org: "LIBKOS (Посилання застаріло)",
+            url: "https://base.monobank.ua/3SS8Jdqy8Mv6bS#subscriptions",
+            skins: []
+          },
+          {
+            org: "tura_hvost",
+            url: "https://base.monobank.ua/tura_hvost#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_tura_card_visa.png", price: "199" }
+            ]
+          },
+          {
+            org: "Veterany Kosmichnyh Viysk",
+            url: "https://base.monobank.ua/De8g3ioyJG8xEQ#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_vkv_card_visa.png", price: "111" }
+            ]
+          },
+          {
+            org: "Слідство.Інфо",
+            url: "https://base.monobank.ua/ExW3X51dcPV2z9#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_slidstvo_card_visa.png", price: "100" }
+            ]
+          },
+
+            {
+              org: "Максим Кільдеров",
+              url: "https://base.monobank.ua/kilderov#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_kilderov1_card_visa.png", price: "66" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_kilderov2_card_visa.png", price: "99" }
+              ]
+            },
+
+          {
+            org: "БФ ГАВКІТ",
+            url: "https://base.monobank.ua/E7b62zaY1GeXuc#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gvkt2_card_visa.png", price: "50" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavkit1_card_visa.png", price: "60" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavkit2_card_visa.png", price: "100" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavkit4_card_visa.png", price: "150" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavkit_card_visa.png", price: "170" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavkit3_card_visa.png", price: "500" }
+            ]
+          },
+          {
+            org: "Bihus.Info",
+            url: "https://base.monobank.ua/bihusinfo#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bihusdsm_card_visa.png", price: "100" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bihus2_card_visa.png", price: "250" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bihus3_card_visa.png", price: "500" }
+            ]
+          },
+          {
+            org: "Михайло Олєйніков",
+            url: "https://base.monobank.ua/D4JUiywGUpJXRM#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_studorg_card_visa.png", price: "150" }
+            ]
+          },
+          {
+            org: "Dzyga's Paw",
+            url: "https://base.monobank.ua/EsU4ynih2p7jmD#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_lapkadzygy_card_visa.png", price: "200" }
+            ]
+          },
+          {
+            org: "Андрій Г.",
+            url: "https://base.monobank.ua/5ZhRHc2VNknoMW#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_gavr_card_visa.png", price: "300" }
+            ]
+          },
+          {
+            org: "ГО СОЦІАЛЬНИЙ ДРОН",
+            url: "https://base.monobank.ua/2acDg9giqGBwvw#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_socialdrone_card_visa.png", price: "55" }
+            ]
+          },
+          {
+            org: "Орест Мурій",
+            url: "https://base.monobank.ua/orest.murii#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_orestm_card_visa.png", price: "10" }
+            ]
+          },
+
+            {
+              org: "KRAKEN",
+              url: "https://base.monobank.ua/kraken#subscriptions",
+              skins: [
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_krkn1_card_visa.png", price: "50" },
+                { src: "https://icons.monobank.com.ua/skin/wallet_base_kraken_card_visa.png", price: "50" }
+              ]
+            },
+
+          {
+            org: "ДОМІВКА ВРЯТОВАНИХ ТВАРИН",
+            url: "https://base.monobank.ua/6HGHvGnYhDHrHX#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_dmvk_card_visa.png", price: "50" }
+            ]
+          },
+          {
+            org: "ТВОЄ МАЙБУТНЄ",
+            url: "https://base.monobank.ua/4kY1gWoR91PxRp#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_future_card_visa.png", price: "50" }
+            ]
+          },
+          {
+            org: "Товариство Чорних Сердець",
+            url: "https://base.monobank.ua/cba#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_cba_card_visa.png", price: "500" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_bcba2_card_visa.png", price: "500" },
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_cba3_card_visa.png", price: "500" }
+            ]
+          },
+          {
+            org: "ВПРИТУЛ",
+            url: "https://base.monobank.ua/vprytul#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/wallet_base_prytula1_card_visa.png", price: "300" }
+            ]
+          },
+          {
+            org: "Олена Мандзюк",
+            url: "https://base.monobank.ua/olenamandziuk#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/auto/bmndz/wallet_base_bmndz_card_visa.png", price: "99" }
+            ]
+          },
+          {
+            org: "Опора Спільноти (Стерненко)",
+            url: "https://base.monobank.ua/sternenkofund#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/auto/ssoperb1/wallet_base_ssoperb1_card_visa.png", price: "1000" },
+              { src: "https://icons.monobank.com.ua/skin/auto/ssoperb2/wallet_base_ssoperb2_card_visa.png", price: "1000" }
+            ]
+          },
+          {
+            org: "Pzhytomyr",
+            url: "https://base.monobank.ua/4jK74FuJaoieLf#subscriptions",
+            skins: [
+              { src: "https://icons.monobank.com.ua/skin/auto/bzhytomyr/wallet_base_bzhytomyr_card_visa.png", price: "10" }
+            ]
+          }
+        ];
+
+
+        const gallery = document.getElementById('gallery');
+
+        data.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            let skinsHtml = '';
+            item.skins.forEach(skin => {
+                skinsHtml += `
+                    <div class="skin-item">
+                        <img src="${skin.src}" class="skin-img" alt="Skin">
+                        <span class="skin-price">Отримати за ${skin.price} ₴/міс</span>
+                    </div>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="card-content">
+                    <span class="badge">#${index + 1}</span><br>
+                    <a href="${item.url}" class="org-name" target="_blank">${item.org}</a>
+                </div>
+                <div class="skins-list">
+                    ${skinsHtml}
+                </div>
+            `;
+            gallery.appendChild(card);
+        });
+    </script>
+</body>
+</html>
